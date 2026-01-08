@@ -1,5 +1,6 @@
 # ai-music-cash-machine
 🧱 STRUCTURE RECOMMANDÉE (simple & GitHub-friendly)
+```
 /ai-music-cash-machine
 │
 ├── index.html          ← application principale
@@ -9,3 +10,4 @@
 ├── tiktok.html         ← stratégie TikTok optimisée
 ├── manifest.json       ← PWA
 └── icon.png            ← icône PWA
+```

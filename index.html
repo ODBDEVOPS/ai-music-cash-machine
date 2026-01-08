@@ -4,9 +4,20 @@
 <meta charset="UTF-8">
 <title>AI Music Cash Machine</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!-- Manifest PWA -->
 <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00ffcc">
 
+<!-- Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('SW registered:', reg))
+      .catch(err => console.log('SW failed:', err));
+  });
+}
+</script>
 <style>
 body {
   font-family: Arial, sans-serif;

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Prompts Suno Ultra-Viraux</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background:#0f0f0f;
+  color:#ffffff;
+  margin:0;
+  padding:20px;
+}
+h1,h2,h3 {
+  color:#00ffcc;
+}
+.section {
+  background:#1a1a1a;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+}
+.prompt {
+  background:#000;
+  border-radius:6px;
+  padding:12px;
+  margin:10px 0;
+  font-size:14px;
+  cursor:pointer;
+}
+.prompt:hover {
+  outline:2px solid #00ffcc;
+}
+.small {
+  opacity:0.7;
+  font-size:13px;
+}
+button,a {
+  display:inline-block;
+  background:#00ffcc;
+  color:#000;
+  padding:10px 15px;
+  margin-top:10px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎼 Prompts Suno Ultra-Viraux</h1>
+<p class="small">👉 Clique sur un prompt pour le copier automatiquement</p>
+
+<!-- SAD / EMOTIONAL -->
+<div class="section">
+<h2>💔 Sad / Emotional (TikTok Gold)</h2>
+
+<div class="prompt">Emotional sad pop song, slow tempo, minimal piano, deep male voice, heartbreak theme, late night vibes, TikTok viral style</div>
+
+<div class="prompt">Melancholic song about loneliness, soft piano and strings, emotional atmosphere, perfect for night TikTok videos</div>
+
+<div class="prompt">Sad acoustic song, intimate vocals, raw emotion, feeling of missing someone, minimalist production</div>
+
+<div class="prompt">Emotional lo-fi pop track, nostalgic mood, rainy night energy, gentle melody</div>
+</div>
+
+<!-- LOFI / SLEEP -->
+<div class="section">
+<h2>😴 Lofi / Sleep / Chill</h2>
+
+<div class="prompt">Soft lo-fi instrumental, warm vinyl texture, slow bpm, relaxing night mood, no vocals, sleep friendly</div>
+
+<div class="prompt">Calm ambient music, peaceful pads, deep relaxation, perfect for studying or sleeping</div>
+
+<div class="prompt">Chill lo-fi beat, cozy bedroom vibes, soft drums, calm atmosphere</div>
+
+<div class="prompt">Relaxing piano and ambient textures, night focus music, stress free</div>
+</div>
+
+<!-- GAMING -->
+<div class="section">
+<h2>🎮 Gaming / Cinematic</h2>
+
+<div class="prompt">Dark cinematic gaming background music, intense build-up, epic atmosphere, perfect for gameplay</div>
+
+<div class="prompt">Futuristic cyberpunk soundtrack, fast rhythm, immersive gaming vibe</div>
+
+<div class="prompt">Epic orchestral gaming music, powerful drums, heroic mood</div>
+
+<div class="prompt">Minimal dark synth music, suspense tension, gaming background</div>
+</div>
+
+<!-- AFRO / LATIN -->
+<div class="section">
+<h2>💃 Afro / Latin (Viral Reels)</h2>
+
+<div class="prompt">Afrobeat track, catchy rhythm, summer vibes, danceable beat, TikTok viral hook in first seconds</div>
+
+<div class="prompt">Latin pop song, energetic rhythm, tropical mood, catchy chorus</div>
+
+<div class="prompt">Afro fusion instrumental, groove-focused beat, feel-good energy</div>
+
+<div class="prompt">Dance afro house track, club vibe, modern production</div>
+</div>
+
+<!-- FOCUS / STUDY -->
+<div class="section">
+<h2>🧠 Focus / Study</h2>
+
+<div class="prompt">Minimal focus music, soft synths, steady rhythm, deep concentration atmosphere</div>
+
+<div class="prompt">Study background music, calm tempo, no distraction, productivity vibe</div>
+
+<div class="prompt">Ambient electronic music, smooth flow, focus and clarity</div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+<h3>🚀 Comment les utiliser</h3>
+<ul>
+<li>1️⃣ Copie un prompt</li>
+<li>2️⃣ Colle dans Suno</li>
+<li>3️⃣ Génère plusieurs versions</li>
+<li>4️⃣ Publie sur DistroKid</li>
+<li>5️⃣ Crée 3 vidéos par musique</li>
+</ul>
+
+<a href="index.html">⬅ Retour à l’accueil</a>
+</div>
+
+<script>
+// Copy on click
+document.querySelectorAll('.prompt').forEach(p => {
+  p.addEventListener('click', () => {
+    navigator.clipboard.writeText(p.innerText);
+    p.style.background = '#00ffcc';
+    p.style.color = '#000';
+    setTimeout(() => {
+      p.style.background = '#000';
+      p.style.color = '#fff';
+    }, 600);
+  });
+});
+</script>
+
+</body>
+</html>

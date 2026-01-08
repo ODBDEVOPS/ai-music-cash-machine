@@ -202,15 +202,5 @@ Exemples :
 ✅ 1 phrase émotionnelle
 ❌ Aucun overthinking
 
----
 
-# 🚀 SI TU VEUX ALLER PLUS LOIN
 
-Je peux encore te livrer :
-
-1️⃣ **`30jours.html` prêt à intégrer dans ton app**
-2️⃣ **Automatisation semi-auto (batch 7 jours)**
-3️⃣ **Stratégie multi-comptes (x3 revenus)**
-4️⃣ **Passage à 300$/jour (scaling avancé)**
-
-👉 Réponds avec **1, 2, 3 ou 4** et on continue à monter 🔥💰

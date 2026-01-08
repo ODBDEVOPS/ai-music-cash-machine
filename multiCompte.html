@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Multi-Compte Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+  padding:20px;
+}
+h1,h2 {
+  color:#00ffcc;
+}
+.section {
+  background:#1a1a1a;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+}
+input, select, button {
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-radius:6px;
+  border:none;
+}
+button {
+  background:#00ffcc;
+  color:#000;
+  font-weight:bold;
+}
+.account {
+  background:#000;
+  padding:12px;
+  border-radius:6px;
+  margin-top:8px;
+}
+.small { font-size:13px; opacity:0.7; }
+</style>
+</head>
+
+<body>
+
+<h1>📱 Multi-Compte Manager</h1>
+<p class="small">Gère tes comptes TikTok / niches et planifie les publications</p>
+
+<div class="section">
+<h2>➕ Ajouter un compte</h2>
+<input id="accountName" placeholder="Nom du compte / niche">
+<input id="accountEmail" placeholder="Email associé">
+<input id="accountBio" placeholder="Bio">
+<button onclick="addAccount()">Ajouter le compte</button>
+</div>
+
+<div class="section">
+<h2>📊 Comptes existants</h2>
+<div id="accountsList"></div>
+</div>
+
+<div class="section">
+<h2>🗓️ Planification Publication</h2>
+<select id="selectAccount">
+<option value="">Sélectionne un compte</option>
+</select>
+<input id="postContent" placeholder="Titre / Description de la vidéo">
+<input id="postDate" type="date">
+<input id="postTime" type="time">
+<button onclick="addPost()">Planifier publication</button>
+
+<div id="scheduledPosts"></div>
+</div>
+
+<a href="index.html">⬅ Retour à l’accueil</a>
+
+<script>
+let accounts = JSON.parse(localStorage.getItem('accounts') || '[]');
+let posts = JSON.parse(localStorage.getItem('posts') || '[]');
+
+function saveAccounts() { localStorage.setItem('accounts', JSON.stringify(accounts)); }
+function savePosts() { localStorage.setItem('posts', JSON.stringify(posts)); }
+
+function addAccount() {
+  const name = document.getElementById('accountName').value;
+  const email = document.getElementById('accountEmail').value;
+  const bio = document.getElementById('accountBio').value;
+  if(!name || !email) return alert('Nom et email obligatoires');
+  accounts.push({name,email,bio});
+  saveAccounts();
+  renderAccounts();
+  document.getElementById('accountName').value='';
+  document.getElementById('accountEmail').value='';
+  document.getElementById('accountBio').value='';
+}
+
+function renderAccounts() {
+  const list = document.getElementById('accountsList');
+  const select = document.getElementById('selectAccount');
+  list.innerHTML='';
+  select.innerHTML='<option value="">Sélectionne un compte</option>';
+  accounts.forEach((acc,i)=>{
+    list.innerHTML+=`<div class="account">
+      <strong>${acc.name}</strong> (${acc.email})<br>
+      ${acc.bio || ''}
+      <button onclick="deleteAccount(${i})">Supprimer</button>
+    </div>`;
+    select.innerHTML+=`<option value="${i}">${acc.name}</option>`;
+  });
+}
+function deleteAccount(i){
+  if(confirm('Supprimer ce compte ?')) {
+    accounts.splice(i,1);
+    saveAccounts();
+    renderAccounts();
+  }
+}
+
+function addPost(){
+  const accIndex = document.getElementById('selectAccount').value;
+  const content = document.getElementById('postContent').value;
+  const date = document.getElementById('postDate').value;
+  const time = document.getElementById('postTime').value;
+  if(accIndex==='' || !content || !date || !time) return alert('Tous les champs sont obligatoires');
+  posts.push({account:accounts[accIndex].name, content, date, time});
+  savePosts();
+  renderPosts();
+  document.getElementById('postContent').value='';
+  document.getElementById('postDate').value='';
+  document.getElementById('postTime').value='';
+}
+function renderPosts(){
+  const div = document.getElementById('scheduledPosts');
+  div.innerHTML='';
+  posts.forEach((p,i)=>{
+    div.innerHTML+=`<div class="account">
+      <strong>${p.account}</strong> - ${p.date} ${p.time}<br>
+      "${p.content}"
+      <button onclick="deletePost(${i})">Supprimer</button>
+    </div>`;
+  });
+}
+function deletePost(i){
+  posts.splice(i,1);
+  savePosts();
+  renderPosts();
+}
+
+renderAccounts();
+renderPosts();
+</script>
+
+</body>
+</html>

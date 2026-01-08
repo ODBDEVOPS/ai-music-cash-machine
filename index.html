@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>AI Music Cash Machine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+  margin:0;
+  padding:20px;
+}
+h1,h2 {
+  color:#00ffcc;
+}
+.section {
+  background:#1a1a1a;
+  border-radius:10px;
+  padding:15px;
+  margin-bottom:20px;
+}
+button,a {
+  display:inline-block;
+  background:#00ffcc;
+  color:#000;
+  padding:10px 15px;
+  margin:5px 0;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:5px;
+}
+.prompt {
+  background:#000;
+  padding:10px;
+  border-radius:5px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎵 AI Music Cash Machine</h1>
+<p>Objectif : 100$/jour avec IA + plateformes gratuites</p>
+
+<div class="section">
+<h2>🚀 Accès Rapide</h2>
+<a href="prompts.html">🎼 Prompts Suno</a><br>
+<a href="capcut.html">🎬 Templates CapCut</a><br>
+<a href="product.html">💰 Produit Digital</a><br>
+<a href="tiktok.html">📱 Stratégie TikTok</a>
+</div>
+
+<div class="section">
+<h2>🎼 Générateur de Prompt Suno</h2>
+<button onclick="generatePrompt()">Générer</button>
+<div class="prompt" id="promptBox"></div>
+</div>
+
+<div class="section">
+<h2>📋 Checklist Quotidienne</h2>
+<p>⏱️ Temps total : 45–60 min</p>
+<ul>
+<li>🎵 10 musiques Suno</li>
+<li>📤 Upload DistroKid</li>
+<li>🎬 10 vidéos courtes</li>
+<li>📱 Post TikTok / Reels / Shorts</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>🧠 Règles d’Or</h2>
+<p>Volume > Perfection</p>
+<p>Algorithme > Audience</p>
+<p>Consistance = Cash</p>
+</div>
+
+<script>
+const prompts = [
+"Emotional sad pop song, slow tempo, minimal piano, late night vibes",
+"Soft lo-fi instrumental, warm vinyl texture, sleep mood",
+"Dark cinematic gaming background music, intense atmosphere",
+"Afrobeat track, catchy rhythm, TikTok viral hook",
+"Relaxing ambient music, peaceful night energy"
+];
+
+function generatePrompt() {
+  document.getElementById("promptBox").innerText =
+    prompts[Math.floor(Math.random() * prompts.length)];
+}
+
+// PWA install
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
